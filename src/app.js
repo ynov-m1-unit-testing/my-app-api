@@ -38,28 +38,9 @@ sequelize.sync()
     });
 
     
-    // On définit une route initiale pour vérifier que le serveur fonctionne
-    app.get("/", (req, res) => {
-        res.send("Welcome to my API");
-    })
-
-app.get('/api/data-replication', async (req, res) => {
-    try {
-        // je vais chercher mes données en BDD
-        const articles = await db.Article.findAll();
-        console.log(articles);
-        // je publie mes données dans redis dans le channel articles
-        const publishMessage = await redisClient.publish('articles', JSON.stringify(articles));
-        console.log(publishMessage);
-        res.status(200).json({
-            numberOfSub: publishMessage,
-            message: "channel successfully published",
-            success: true
-        });
-    }
-    catch (err) {
-        res.status(500).json({ message: err.message });
-    }
+// On définit une route initiale pour vérifier que le serveur fonctionne
+app.get("/", (req, res) => {
+    res.send("Welcome to my API");
 })
 
 // on définit la route pour récupérer tous les articles avec les controllers
