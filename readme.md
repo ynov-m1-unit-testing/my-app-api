@@ -1,14 +1,3 @@
-const isAuth = (req, res, next) => { 
-    // si dans le header de ma requête, la propriété authorization n'existe pas || est vide || est null || est undefined || string vide
-    if (!req.headers.authorization) {
-        return res.status(403).json({ error: 'No credentials sent!' })
-    }
-    // si j'ai une valeur dans le header de ma requête, alors 
-    next();
-}
-
-module.exports = isAuth;
-
 - TO DO 
 
     - CRUD sur articles 
