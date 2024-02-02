@@ -95,7 +95,6 @@ module.exports = {
     },
 
     createArticle: async (req, res) => { 
-        console.log(req.body, "BODY");
         try {
             const newArticle = await db.Article.create(req.body);
             return res.status(201).json({
