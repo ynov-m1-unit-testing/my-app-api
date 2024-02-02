@@ -92,5 +92,54 @@ module.exports = {
                 // si une erreur se produit, on renvoie un code 500 avec le message de l'erreur
                 res.status(500).json({ message: err.message });
             }
+    },
+
+    createArticle: async (req, res) => { 
+        console.log(req.body, "BODY");
+        try {
+            const newArticle = await db.Article.create(req.body);
+            return res.status(201).json({
+                results: newArticle,
+                success: true
+            });
+        }
+        catch (err) {
+            return res.status(500).json({ message: err.message });
+        }
+    },
+
+    updateArticle: async (req, res) => { 
+        try {
+            const updatedArticle = await db.Article.update(req.body, {
+                where: {
+                    id: req.params.id
+                }
+            });
+            return res.status(200).json({
+                results: updatedArticle,
+                success: true
+            });
+        }
+        catch (err) {
+            return res.status(500).json({ message: err.message });
+        }
+    },
+
+    deleteArticle: async (req, res) => { 
+        try {
+            const deletedArticle = await db.Article.destroy({
+                where: {
+                    id: req.params.id
+                }
+            });
+            return res.status(200).json({
+                results: deletedArticle,
+                success: true
+            });
+        }
+        catch (err) {
+            return res.status(500).json({ message: err.message });
+        }
     }
+
 }

@@ -10,6 +10,7 @@ const db = require('./models/index.js');
 // on utilise cors pour autoriser les requêtes provenant d'autres domaines
 app.use(cors())
 app.options(process.env.FRONTEND_URL, cors());
+app.use(express.json());
 
 // on se connecte à la base de données avec la configuration de sequelize
 const sequelize = new Sequelize(config.database, config.username, config.password, {
