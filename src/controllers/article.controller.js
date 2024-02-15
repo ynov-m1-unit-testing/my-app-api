@@ -32,7 +32,7 @@ module.exports = {
 
     },
 
-    searchArticles: async (req, res) => { 
+    searchArticles: async (req, res) => {
         try {
             const articles = await db.Article.findAll({
                 where: {
@@ -96,6 +96,20 @@ module.exports = {
 
     createArticle: async (req, res) => { 
         try {
+            const { title, description, date } = req.body;
+            console.log(Object.keys(req.body), "keys object");
+            if (Object.keys(req.body).length == 0) {
+                return res.status(400).json({
+                    success: false,
+                    message: "body is empty"
+                })
+            }
+            if (!title || !description || !date) {
+                return res.status(400).json({
+                    success: false,
+                    message: "All fields are required"
+                })
+            }
             const newArticle = await db.Article.create(req.body);
             return res.status(201).json({
                 results: newArticle,
@@ -103,7 +117,10 @@ module.exports = {
             });
         }
         catch (err) {
-            return res.status(500).json({ message: err.message });
+            return res.status(500).json({
+                success: false,
+                message: err.message
+            });
         }
     },
 

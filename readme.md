@@ -5,7 +5,7 @@
     - Test unitaire sur le middleware isAuth
 
     - Créer un test d'intégration / fonctionnel qui va tester l'ensemble des trois fonctions : 
-        -> sur la route qui créé un article : tester la route, le middleware et le controller + middleware gestion d'erreur
+        -> sur la route qui créé un article : tester la route, le middleware et le controller + middleware gestion d'erCréation reur
         -> package supertest (pour faire des appels sur les endpoints)
         -> initialisation de l'API & base de données
             => BeforeAll
