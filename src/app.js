@@ -22,13 +22,6 @@ const sequelize = new Sequelize(config.database, config.username, config.passwor
     }
 });
 
-// on synchronise sequelize avec la base de données
-// La synchronisation permet de créer les tables dans la base de données si elles n'existent pas
-
-// redisClient.connect().then(() => {
-//     console.log("redis conencted")
-// }).catch(err => console.log(err));
-
 sequelize.sync()
     .then(() => {
         console.log('database synchronised');
