@@ -126,11 +126,24 @@ module.exports = {
 
     updateArticle: async (req, res) => { 
         try {
+            const { id } = req.params;
+            if (isNaN(id)) {
+                return res.status(400).json({
+                    success: false,
+                    message: "Id must be a number"
+                })
+            }
             const updatedArticle = await db.Article.update(req.body, {
                 where: {
-                    id: req.params.id
+                    id: id
                 }
             });
+            if (updatedArticle == 0) {
+                return res.status(404).json({
+                    success: false, 
+                    message: "Article not found"
+                })
+            }
             return res.status(200).json({
                 results: updatedArticle,
                 success: true

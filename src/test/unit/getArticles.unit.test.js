@@ -1,8 +1,8 @@
-const { getArticles } = require("../controllers/article.controller");
-const db = require("../models/");
-const { ARTICLES } = require("./data/articles");
+const { getArticles } = require("../../controllers/article.controller");
+const db = require("../../models");
+const { ARTICLES } = require("../data/articles");
 
-jest.mock('../models/', () => (
+jest.mock('../../models/', () => (
     {
         Article: {
             findAll: jest.fn()

@@ -1,8 +1,8 @@
-const { createArticle } = require("../controllers/article.controller");
-const db = require("../models/");
-const { ARTICLE }= require("./data/articles");
+const { createArticle } = require("../../controllers/article.controller");
+const db = require("../../models");
+const { ARTICLE }= require("../data/articles");
 
-jest.mock('../models/', () => (
+jest.mock('../../models/', () => (
     {
         Article: {
             create: jest.fn()
@@ -55,7 +55,7 @@ describe("Controller createArticle", () => {
             message: "All fields are required"
         });
     });
-    it("It should return a res with code 400 if req.body is empt", async () => {
+    it("It should return a res with code 400 if req.body is empty", async () => {
         const mockJson = jest.fn();
         const mockStatus = jest.fn(() => ({ json: mockJson }));
         // on simule l'objet res
@@ -95,5 +95,3 @@ describe("Controller createArticle", () => {
         });
     });
 });
-
-// TEST REJECT VALUE 
