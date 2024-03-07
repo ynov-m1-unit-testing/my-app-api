@@ -1,5 +1,5 @@
 const { launchServer, closeServer } = require('../../services/server.service');
-const { launchDb, closeDb } = require('../../services/db.service');
+const { launchDb, closeDb, resetDb } = require('../../services/db.service');
 
 beforeAll(async () => {
     await launchDb();
@@ -9,4 +9,10 @@ beforeAll(async () => {
 afterAll(async () => {
     await closeServer();
     await closeDb();
+});
+
+beforeEach(async () => { 
+    // clear db
+    // resetDb
+    await resetDb();
 });
