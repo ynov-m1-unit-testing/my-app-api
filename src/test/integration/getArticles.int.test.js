@@ -17,21 +17,15 @@
 
 const request = require('supertest');
 
-beforeEach(async () => {
-    // lancer le serveur (créer une fonctionn qui utilise .listen())
-    // on se connect à la base de données
-})
+const app = require('../../services/app.service');
 
-describe('GET/ articles', async() => {
-    it("should return a list of articles", async () => { 
-        const response = await request(app).get('/articles');
-        //expect => response 200
-        //body  => articles array
-        // body => success true
+describe('GET / get all articles', () => { 
+
+    it("should return a res 200 with an array of articles ", async () => {
+        const res = await request(app).get('/api/articles');
+        expect(res.status).toBe(200);
+        expect(res.body.results).toBeInstanceOf(Array);
+        expect(res.body.success).toBe(true);
     });
-});
 
-afterEach(async () => { 
-    // fermer le serveur (créer une fonction qui utilise .close())
-    // on se déconnecte de la base de données
 });
