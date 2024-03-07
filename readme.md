@@ -1,9 +1,5 @@
 - TO DO 
 
-    - Tests unitaires sur ces 3 controllers 
-
-    - Test unitaire sur le middleware isAuth
-
     - Créer un test d'intégration / fonctionnel qui va tester l'ensemble des trois fonctions : 
         -> sur la route qui créé un article : tester la route, le middleware et le controller + middleware gestion d'erCréation reur
         -> package supertest (pour faire des appels sur les endpoints)
@@ -20,3 +16,11 @@
         - Fichier de configs jest qui va lancer tous les fichiers en .integration & .unit
         - Qui valancer tous les fichiers dans le dossier unit ou le dossier integration
         - Tag dans jest
+
+    - TDD :
+        Créer un test unitaire sans passer par l'écriture du controller 
+        On souhaite connaître la moyenne du nombre de caractère dans les descriptions des articles 
+        -> controller qui va passer à travers tous les articles 
+        -> Compte les mots dans le champs description 
+        -> en faire une moyenne global
+        -> Doit renvoyer une moyenne 
