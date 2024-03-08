@@ -12,6 +12,9 @@ const sequelize = new Sequelize(config.database, config.username, config.passwor
 });
 
 const launchDb = async () => {
+
+    console.log(process.env.NODE_ENV);
+
     try {
         await sequelize.sync();
         console.log("Connection to the database has been established successfully");

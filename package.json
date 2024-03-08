@@ -9,7 +9,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:unit": "jest --config=./jest.config.unit.js",
-    "test:int": "jest --config=./jest.config.int.js"
+    "test:int": "jest --config=./jest.config.int.js --detectOpenHandles --watch"
   },
   "author": "",
   "license": "ISC",

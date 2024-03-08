@@ -1,4 +1,3 @@
-require('./services/app.service');
 const { launchServer } = require('./services/server.service');
 const { launchDb } = require('./services/db.service');
 require('dotenv').config();

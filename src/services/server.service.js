@@ -1,12 +1,10 @@
 
-const express = require('express');
-const app = express();
-const config = require('../config/config.js')[process.env.NODE_ENV || 'development'];
-
+const app = require('./app.service');
+require('dotenv').config();
 let server;
 
 const launchServer = async () => { 
-    server = app.listen(config.port, () => {
+    server = app.listen(process.env.PORT, () => {
         console.log(`server launch on port ${process.env.PORT}`);
     });
 }
