@@ -11,10 +11,7 @@ afterAll(async () => {
     await closeDb();
 });
 
-// beforeEach(async () => { 
-//     // clear db
-//     // await clearDb()
-//     // resetDb
-//     // await resetDb()
-//     await resetDb();
-// });
+afterEach(async () => {
+    // clear db
+    await resetDb();
+});
