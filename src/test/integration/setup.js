@@ -13,6 +13,8 @@ afterAll(async () => {
 
 // beforeEach(async () => { 
 //     // clear db
+//     // await clearDb()
 //     // resetDb
+//     // await resetDb()
 //     await resetDb();
 // });
